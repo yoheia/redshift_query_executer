@@ -8,7 +8,7 @@ LOG_DIR=${LOG_DIR:-log}
 
 PSQL=${PSQL:-/usr/pgsql-13/bin/psql}
 PG_HOST=${PG_HOST:-redshift-cluster-poc.ceyg6jv96hfq.ap-northeast-1.redshift.amazonaws.com}
-PG_USER=${PG_USER:-dwh_tools_user}
+PG_USER=${PG_USER:-dwh_tool_user}
 PG_DB=${PG_DB:-dev}
 PG_PORT=${PG_PORT:-5439}
 SQL_SCRIPT=${SQL_SCRIPT:-stv_inflight.sql}
