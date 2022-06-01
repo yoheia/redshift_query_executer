@@ -2,7 +2,7 @@
 
 export LC_ALL=C
 SCRIPT_BASE_NAME=$(basename $0 .sh)
-CURRENT_DATE=`date '+%Y-%m-%d-%H%M%S'`
+CURRENT_DATE=`date '+%Y%m%d_%H%M%S'`
 BASE_DIR=$(cd $(dirname $0);pwd)
 LOG_DIR=${LOG_DIR:-log}
 
@@ -20,5 +20,7 @@ then
 fi
 
 cd $BASE_DIR
-${PSQL} "host=${PG_HOST} port=${PG_PORT} dbname=${PG_DB} user=${PG_USER}" -a -f ${SQL_SCRIPT} > "${LOG_DIR}/${SCRIPT_BASE_NAME}_${CURRENT_DATE}.log" 2>&1 &
-${PSQL} "host=${PG_HOST} port=${PG_PORT} dbname=${PG_DB} user=${PG_USER}" -a -f ${SQL_SCRIPT} > "${LOG_DIR}/${SCRIPT_BASE_NAME}_${CURRENT_DATE}.log" 2>&1 &
+${PSQL} "host=${PG_HOST} port=${PG_PORT} dbname=${PG_DB} user=${PG_USER}" -a -f ${SQL_SCRIPT} \
+    > "${LOG_DIR}/${SCRIPT_BASE_NAME}_${CURRENT_DATE}.log" 2>&1 &
+${PSQL} "host=${PG_HOST} port=${PG_PORT} dbname=${PG_DB} user=${PG_USER}" -a -f ${SQL_SCRIPT} \
+    > "${LOG_DIR}/${SCRIPT_BASE_NAME}_${CURRENT_DATE}.log" 2>&1 &
